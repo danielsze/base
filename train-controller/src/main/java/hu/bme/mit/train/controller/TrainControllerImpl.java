@@ -14,7 +14,14 @@ public class TrainControllerImpl implements TrainController {
 	private Timer timer;
 
 	{
-
+		timer = new Timer(true);
+		TimerTask tt = new TimerTask() {
+			@Override
+			public void run() {
+				followSpeed();
+			}
+		};
+		timer.scheduleAtFixedRate(tt, 0, 100);
 	}
 
 	@Override
@@ -56,14 +63,6 @@ public class TrainControllerImpl implements TrainController {
 	@Override
 	public void setJoystickPosition(int joystickPosition) {
 		this.step = joystickPosition;
-		timer = new Timer(true);
-		TimerTask tt = new TimerTask() {
-			@Override
-			public void run() {
-				followSpeed();
-			}
-		};
-		timer.scheduleAtFixedRate(tt, 0, 100);
 
 	}
 
