@@ -27,7 +27,6 @@ public class TrainSystemTest {
 
 	@Test
 	public void PassingTest(){
-		Assert.assertEquals(1, 1);
 		sensor.overrideSpeedLimit(10);
 		user.overrideJoystickPosition(5);
 		controller.followSpeed();
